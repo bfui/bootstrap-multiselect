@@ -290,7 +290,7 @@
 				if (value == this.options.selectAllValue) {
 					// Toggle all options if the select all option was changed.
 					var values = $inputs
-						.filter(':visible')
+						.filter(':visible').filter(':not([disabled])')
 							.filter(checked ? ':not(:checked)' : ':checked').toggleAttr('checked', checked)
 								.map(function(){return this.value;});
 					$options
