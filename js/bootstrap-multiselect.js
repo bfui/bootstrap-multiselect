@@ -46,6 +46,7 @@
 		this.$select = $(select);
 		this.originalOptions = this.$select.clone()[0].options; //we have to clone to create a new reference
 		this.options.multiple = this.$select.prop('multiple') || this.$select[0].hasAttribute('multiple');
+        	this.$secondaryAction = null;		
 
 		var $button = $('<button>', {
 			'type': 'button',
@@ -73,6 +74,22 @@
 
 			$(':text', this.$container).width('75%');
 		}
+		
+		// Add secondaryAction if present
+		if(this.options.secondaryAction){
+			var secondaryActionOpts = this.options.secondaryAction;
+			var secondaryAction = [
+				'<li>',
+				'<div class="form-actions">',
+					'<a href="', secondaryActionOpts.action, '" class="btn btn-small">'						
+			];
+			if(secondaryActionOpts.icon){
+				secondaryAction.push('<i class="icon-', secondaryActionOpts.icon, '"></i>');
+			}
+			secondaryAction.push(secondaryActionOpts.messageText,'</a></div></li>');
+			this.$secondaryAction = secondaryAction.join('');
+		}
+
 
 		// Enable filtering.
 		if (this.options.enableFiltering) {
