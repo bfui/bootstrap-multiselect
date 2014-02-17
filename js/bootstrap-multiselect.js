@@ -392,6 +392,8 @@
 					event.preventDefault();
 				}
 			}, this));
+			
+			this.$container.find('.multiselect-container').append(this.$secondaryAction);
 		},
 
 		// Destroy - unbind - the plugin.
