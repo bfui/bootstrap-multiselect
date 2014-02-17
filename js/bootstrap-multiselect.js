@@ -46,7 +46,7 @@
 		this.$select = $(select);
 		this.originalOptions = this.$select.clone()[0].options; //we have to clone to create a new reference
 		this.options.multiple = this.$select.prop('multiple') || this.$select[0].hasAttribute('multiple');
-        	this.$secondaryAction = null;		
+		this.$secondaryAction = null;		
 
 		var $button = $('<button>', {
 			'type': 'button',
